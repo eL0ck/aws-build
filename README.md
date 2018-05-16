@@ -12,8 +12,14 @@ pip install -r requirements_build.txt
 ```
 2. Test: `pytest`
 3. Lint: `flake8 --ignore=E501`
-4. Package: `python setup.py sdist bdist_wheel`
-5. Deploy to PyPi (Test):
+4. Append the build number to version.txt and write back into the `version.txt`.  Something like this:
+```
+a=($(cat version.txt | xargs))
+version_no=${a[0]}
+BUILD_VERSION=${version_no}.${TRAVIS_BUILD_NUMBER}
+```
+5. Package: `python setup.py sdist bdist_wheel`
+6. Deploy to PyPi (Test):
 ```
 twine upload --repository-url https://test.pypi.org/legacy/ \
     -u ${USERNAME} \
