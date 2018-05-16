@@ -21,9 +21,11 @@ twine upload --repository-url https://test.pypi.org/legacy/ \
     dist/*
 ```
 
-The package should then be installable via the command:
+The package should then be installable via the command (available now):
 
 `pip install --index-url https://testpypi.python.org/pypi yoyo`
+
+and testable with the CLI app: `yoyo --help`
 
 Manage the project here:
 
